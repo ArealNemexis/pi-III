@@ -3,3 +3,4 @@ node_modules
 ideias.txt
 *.js
 *.json
+test.*
