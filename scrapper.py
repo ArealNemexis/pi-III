@@ -29,7 +29,7 @@ def get_date(raw_title: str):
 
 url = 'https://www.hltv.org/results?offset='
 offsets = [0]
-offsets.extend(list(range(100, 1800, 100)))
+offsets.extend(list(range(100, 2600, 100)))
 
 
 for offset in offsets:
@@ -42,7 +42,7 @@ for offset in offsets:
 
     column_names = ["team1", "team2", "result1",
                     "result2", "date_of_match", "reference"]
-
+    print(results[0])
     for l in results:
         df = pd.DataFrame(columns=column_names)
         title = l.find_all(class_='standard-headline')[0].text
@@ -62,7 +62,8 @@ for offset in offsets:
             df.loc[len(df.index)] = [team_1, team_2, team_1_result,
                                     team_2_result, str(date_of_day), link_of_match]
 
-        filename = f'csvs/{str(date_of_day)}.csv'
+        filename = f'general/{str(date_of_day)}.csv'
+        # filename = f'csvs/{str(date_of_day)}.csv'
         if not os.path.isfile(filename):
             df.to_csv(filename, index=False)
         else:
