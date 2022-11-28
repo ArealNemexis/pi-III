@@ -32,4 +32,4 @@ matches_per_team = mergeDictionary(vc1.to_dict(), vc2.to_dict())
 
 # partidas jogadas por cada time, vai virar um grafico
 df2 = pd.DataFrame(pd.Series(matches_per_team))
-df2.to_csv("teste.csv")
+df2.to_csv("matches_per_team.csv")
